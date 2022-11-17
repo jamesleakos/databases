@@ -2,6 +2,46 @@ var db = require('../db');
 // get the client
 const mysql = require('mysql2');
 
+// var Sequelize = require('sequelize');
+
+// const database = new Sequelize('chat', 'root', '', {
+//   host: 'localhost',
+//   dialect: 'mysql'
+// });
+
+// var Messages = database.define('messages', {
+//   id: {
+//     type: Sequelize.INTEGER,
+//     autoIncrement: true,
+//     primaryKey: true
+//   },
+//   text: Sequelize.STRING,
+//   userId: Sequelize.INTEGER,
+//   roomId: Sequelize.INTEGER,
+// });
+
+// var Users = database.define('users', {
+//   id: {
+//     type: Sequelize.INTEGER,
+//     autoIncrement: true,
+//     primaryKey: true
+//   },
+//   name: Sequelize.STRING
+// });
+
+// var Rooms = database.define('rooms', {
+//   id: {
+//     type: Sequelize.INTEGER,
+//     autoIncrement: true,
+//     primaryKey: true
+//   },
+//   roomname: Sequelize.STRING
+// });
+
+// Messages.belongsTo(Users, {foreignKey: 'userId'});
+// Messages.belongsTo(Rooms, {foreignKey: 'roomId'});
+
+
 const connection = mysql.createConnection({
   host: '127.0.0.1',
   user: 'root',
@@ -32,7 +72,22 @@ module.exports = {
         callback(results);
       }
     );
-  }, // a function which produces all the messages
+
+    // Messages.findAll({
+    //   attributes: ['text'],
+    //   include: [{
+    //     model: Users,
+    //     required: false
+    //   }]
+    // })
+    //   .then((messages) => {
+    //     console.log('messages: ' + JSON.stringify(messages));
+    //     callback(messages);
+    //   })
+    //   .catch((err) => {
+    //     console.log('error: ' + err);
+    //   });
+  },
   create: function ({text, username}) {
     connection.query(
       'SELECT id FROM `users` where `name` = ?',
