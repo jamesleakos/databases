@@ -3,13 +3,13 @@ CREATE DATABASE chat;
 USE chat;
 
 CREATE TABLE rooms (
-  id int,
+  id int NOT NULL AUTO_INCREMENT,
   roomname VARCHAR(20),
   PRIMARY KEY(id)
 );
 
 CREATE TABLE users (
-  id int,
+  id int NOT NULL AUTO_INCREMENT,
   name VARCHAR(20),
   PRIMARY KEY(id)
 );

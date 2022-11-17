@@ -16,7 +16,7 @@ describe('Persistent Node Chat Server', () => {
   beforeAll((done) => {
     dbConnection.connect();
 
-       const tablename = 'messages'; // TODO: fill this out
+    const tablename = 'messages'; // TODO: fill this out
 
     /* Empty the db table before all tests so that multiple tests
      * (or repeated runs of the tests)  will not fail when they should be passing
@@ -33,7 +33,7 @@ describe('Persistent Node Chat Server', () => {
     const message = 'In mercy\'s name, three days is all I need.';
     const roomname = 'Hello';
     // Create a user on the chat server database.
-    axios.post(`${API_URL}/users`, { username })
+    axios.post(`${API_URL}/messages`, { username })
       .then(() => {
         // Post a message to the node chat server:
         return axios.post(`${API_URL}/messages`, { username, message, roomname });

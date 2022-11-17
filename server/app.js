@@ -15,7 +15,7 @@ module.exports.app = app;
 app.set('port', 3000);
 
 // Logging and parsing
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 app.use(cors());
 app.use(express.json());
 
